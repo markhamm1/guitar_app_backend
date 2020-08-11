@@ -28,4 +28,10 @@ class Api::GuitarsController < ApplicationController
     @guitar.save
     render 'show.json.jb'
   end
+
+  def destroy
+    @guitar = Guitar.find_by(id: params[:id])
+    @guitar.destroy
+    render json: {message: "The item has been deleted"}
+  end
 end

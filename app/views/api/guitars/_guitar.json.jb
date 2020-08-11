@@ -1,4 +1,5 @@
 {
+  id: guitar.id,
   make: guitar.make,
   model: guitar.model,
   image_url: guitar.image_url
