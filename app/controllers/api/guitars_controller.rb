@@ -8,4 +8,24 @@ class Api::GuitarsController < ApplicationController
     @guitar = Guitar.find_by(id: params[:id])
     render 'show.json.jb'
   end
+  
+  def create
+    @guitar = Guitar.create(
+      make: params[:make],
+      model: params[:model],
+      image_url: params[:image_url]
+    )
+    render 'show.json.jb'
+  end
+
+  def update
+    @guitar = Guitar.find_by(id: params[:id])
+    @guitar.update(
+      make: params[:make] || @guitar.make,
+      model: params[:model] || @guitar.model,
+      image_url: params[:image_url] || @guitar.image_url,
+    )
+    @guitar.save
+    render 'show.json.jb'
+  end
 end
