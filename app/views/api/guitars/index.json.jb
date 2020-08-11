@@ -1,0 +1,3 @@
+@guitar.map do |guitar|
+  render partial: "guitar.json.jb", locals: {guitar: guitar}
+end
